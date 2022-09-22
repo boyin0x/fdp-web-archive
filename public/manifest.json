@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+
+  "name": "FDP-Web-Archive",
+  "description": "FDP Web Archive for web3",
+  "version": "0.1",
+  "icons": {
+    "256": "Icon-256.png",
+    "128": "Icon-128.png",
+    "48": "Icon-48.png",
+    "16": "Icon-16.png"
+  },
+  
+  
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+      {
+          "matches": ["<all_urls>"],
+          "js": ["js/vendor.js", "js/content_script.js"]
+      }
+  ],
+
+  
+  
+  "permissions": [
+    "storage"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
