@@ -89,7 +89,12 @@ export function urlFromPageName(pageName: string) {
 export function titleFromPageName(pageName: string) :string{
   let jsonNameStr = decodeURIComponent(pageName)
   let jsonName = JSON.parse(jsonNameStr)  as {t:string, u:string}
-  return jsonName && jsonName.t.length > 0 ? jsonName.t : ""
+  
+  if (jsonName && jsonName.t.length > 0) { 
+    return jsonName.t
+  } else {
+    return jsonName && jsonName.u ? jsonName.u : pageName
+  }
 }
 
 export function createFileName(title: string, url: string, text:string) {
